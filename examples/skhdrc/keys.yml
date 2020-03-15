@@ -1,0 +1,11 @@
+version: "0.0.1"
+author: "Yeung Yiu Hung"
+url: "https://github.com/darkcl/skhdrc"
+name: skhdrc
+platform: macos
+destination: ~/.skhdrc
+keys:
+  - combination: "atl + 1"
+    description: "Move active window to workspace #1"
+  - combination: "atl + 2"
+    description: "Move active window to workspace #2"
