@@ -3,6 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=go
 
 build/
+tmp/
 
 ### Go ###
 # Binaries for programs and plugins

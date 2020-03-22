@@ -1,8 +1,11 @@
 package cmd
 
 import (
-	"fmt"
+	"log"
+	"os"
+	"path"
 
+	"github.com/leaanthony/mewn"
 	"github.com/spf13/cobra"
 )
 
@@ -11,7 +14,21 @@ var initCmd = &cobra.Command{
 	Use:   "init",
 	Short: "Create a shortcut repository in current working directory",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("init called")
+		currentDirectory, err := os.Getwd()
+		if err != nil {
+			log.Fatal("Error on getting current path: ", err)
+			return
+		}
+
+		metaFile, err := os.Create(path.Join(currentDirectory, "meta.yml"))
+		if err != nil {
+			log.Fatal("Error on creating file: ", err)
+			return
+		}
+		defer metaFile.Close()
+
+		meta := mewn.String("./assets/meta.yml.tpl")
+		metaFile.WriteString(meta)
 	},
 }
 
